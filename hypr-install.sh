@@ -15,6 +15,8 @@ else
     exit 
 fi
 
+read -n1 -rep 'Are you running in a VM? (y,n)' VM
+
 ### Disable wifi powersave mode ###
 read -n1 -rep 'Would you like to disable wifi powersave? (y,n)' WIFI
 if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
@@ -31,14 +33,27 @@ fi
 #Removed cliphist
 read -n1 -rep 'Would you like to install the packages? (y,n)' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
-    yay -S --noconfirm hyprland kitty waybar-hyprland   \
-    swww-git swaylock-effects wofi wlogout mako thunar  \
-    thunar-archive-plugin nwg-look-bin                  \
-    ttf-jetbrains-mono-nerd noto-fonts-emoji            \
-    wlr-randr sddm-git starship fish-git                \
-    polkit-kde-agent python-requests                    \
-    swappy grim slurp pamixer brightnessctl gvfs        \
-    xdg-desktop-portal-hyprland-git qt6-wayland
+    # Install packages depending on if the user is in a VM or not
+    if (( $VM == "Y" || $VM == "y" )); then
+        yay -S --noconfirm hyprland foot waybar-hyprland   \
+        swww-git swaylock-effects wofi wlogout mako thunar  \
+        thunar-archive-plugin nwg-look-bin                  \
+        ttf-jetbrains-mono-nerd noto-fonts-emoji            \
+        wlr-randr sddm-git starship fish-git                \
+        polkit-kde-agent python-requests                    \
+        swappy grim slurp pamixer brightnessctl gvfs        \
+        xdg-desktop-portal-hyprland-git qt6-wayland
+    else
+        yay -S --noconfirm hyprland kitty waybar-hyprland   \
+        swww-git swaylock-effects wofi wlogout mako thunar  \
+        thunar-archive-plugin nwg-look-bin                  \
+        ttf-jetbrains-mono-nerd noto-fonts-emoji            \
+        wlr-randr sddm-git starship fish-git                \
+        polkit-kde-agent python-requests                    \
+        swappy grim slurp pamixer brightnessctl gvfs        \
+        xdg-desktop-portal-hyprland-git qt6-wayland
+    fi
+
 
     # Start the bluetooth service
     echo -e "Starting the Bluetooth Service...\n"
@@ -52,7 +67,6 @@ fi
 
 ### Copy Config Files ###
 read -n1 -rep 'Would you like to copy config files? (y,n)' CFG
-read -n1 -rep 'Are you running in a VM? (y,n)' VM
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
     # Global configs
     mkdir -p ~/.wallpapers && cp ./global/background.jpg $_
@@ -90,13 +104,13 @@ if [[ $ALOG == "Y" || $ALOG == "y" ]]; then
     sleep 3
 fi
 
-
-### Script is done ###
-echo -e "Script had completed.\n"
-echo -e "You can start Hyprland by typing Hyprland (note the capital H).\n"
+# Start now prompt
 read -n1 -rep 'Would you like to start Hyprland now? (y,n)' HYP
 if [[ $HYP == "Y" || $HYP == "y" ]]; then
     exec Hyprland
 else
     exit
 fi
+### Script is done ###
+echo -e "Script has completed.\n"
+echo -e "You can start Hyprland by typing Hyprland (note the capital H).\n"

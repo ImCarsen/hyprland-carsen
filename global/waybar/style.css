@@ -59,7 +59,9 @@ tooltip {
 #network,
 #workspaces,
 #tray,
-#backlight {
+#backlight,
+#cpu,
+#memory {
     background: #1e1e2e;
     padding: 0px 10px;
     margin: 3px 0px;
@@ -70,6 +72,7 @@ tooltip {
 #tray {
     border-radius: 10px;
     margin-right: 10px;
+    border: 1px;
 }
 
 #workspaces {
@@ -78,6 +81,7 @@ tooltip {
     margin-left: 10px;
     padding-right: 0px;
     padding-left: 5px;
+    border: 1px;
 }
 
 #custom-caffeine {
@@ -97,12 +101,15 @@ tooltip {
     color: #f5c2e7;
     border-left: 0px;
     border-right: 0px;
+    border-radius: 10px 0px 0px 10px;
+    border: 1px;
 }
 
 #window {
     border-radius: 10px;
     margin-left: 60px;
     margin-right: 60px;
+    border: 1px;
 }
 
 #clock {
@@ -110,6 +117,7 @@ tooltip {
     border-radius: 10px 0px 0px 10px;
     margin-left: 0px;
     border-right: 0px;
+    border: 1px;
 }
 
 #network {
@@ -122,12 +130,15 @@ tooltip {
     color: #89b4fa;
     border-left: 0px;
     border-right: 0px;
+    border: 1px;
 }
 
 #pulseaudio.microphone {
     color: #cba6f7;
+    border: 1px;
     border-left: 0px;
     border-right: 0px;
+    border-radius: 0px 10px 10px 0px;
 }
 
 #battery {
@@ -141,4 +152,15 @@ tooltip {
     border-radius: 0px 10px 10px 0px;
     border-right: 0px;
     margin-left: 0px;
+    border: 1px;
+}
+
+#memory {
+    color: #67b48e;
+    border: 1px;
+}
+
+#cpu {
+    color: #67b48e;
+    border: 1px
 }
