@@ -21,7 +21,6 @@
 
 ## Usage
 Made to be run on a fresh install.
-Tested on EndeavourOS Cassini Nova 03-2023 R1 minimal installation
 ```
 git clone https://github.com/ImCarsen/hyprland-carsen.git
 cd /hyprland-carsen
@@ -34,6 +33,7 @@ Contributions are always welcome! If you want to contribute, feel free to check 
 
 ## Acknowledgements and References
 I'm still super early on in this project and haven't been daily driving Linux for 2+ years. Bear with me.
+Tested on EndeavourOS Cassini Nova 03-2023 R1 minimal installation in a VM, so things might not work yet on actual hardware.
 
 Original projects sourced from:
  - [SolDoesTech Hyprland](https://github.com/soldoestech/hyprland)
