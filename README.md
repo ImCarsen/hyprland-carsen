@@ -29,16 +29,22 @@ sh hypr-install.sh
 
 ## Contributing and Discussions
 
-Contributions are always welcome! If you want to contribute, feel free to check [issues page](https://github.com/ImCarsen/hyprland-carsen/issues) and the [discussions page](https://github.com/ImCarsen/hyprland-carsen/issues).<br />
+Contributions are always welcome! If you want to contribute, feel free to check the [issues page](https://github.com/ImCarsen/hyprland-carsen/issues) and the [discussions page](https://github.com/ImCarsen/hyprland-carsen/issues).<br />
+
 
 ## Acknowledgements and References
 I'm still super early on in this project and haven't been daily driving Linux for 2+ years. Bear with me.
+
 Tested on EndeavourOS Cassini Nova 03-2023 R1 minimal installation in a VM, so things might not work yet on actual hardware.
 
-Original projects sourced from:
- - [SolDoesTech Hyprland](https://github.com/soldoestech/hyprland)
- - [ChrisTitusTech Hyprland](https://github.com/ChrisTitusTech/hyprland-titus)
+Based on:
+  - [SolDoesTech Hyprland](https://github.com/soldoestech/hyprland)
+  - [ChrisTitusTech Hyprland](https://github.com/ChrisTitusTech/hyprland-titus)
+
+Useful resources:
+  - [Hyprland Wiki](https://wiki.hyprland.org/)
  
+
 ## Author
 
 👤 **I'm Carsen**
