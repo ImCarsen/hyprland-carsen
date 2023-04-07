@@ -54,7 +54,7 @@ fi
 read -n1 -rep 'Would you like to copy config files? (y,n)' CFG
 read -n1 -rep 'Are you running in a VM? (y,n)' VM
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
-    if [[ $VM == "Y" || $VM == "y" ]]; then
+    if (( $VM == "Y" || $VM == "y" )); then
         echo -e "Copying config files...\n"
         cp ./dotconfig/background.jpg ~/.wallpapers
         cp -R ./vmdotconfig/hypr ~/.config/
