@@ -51,7 +51,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
         wlr-randr sddm-git starship fish-git                \
         polkit-kde-agent python-requests                    \
         swappy grim slurp pamixer brightnessctl gvfs        \
-        xdg-desktop-portal-hyprland-git qt6-wayland
+        xdg-desktop-portal-hyprland-git qt6-wayland qt5-wayland
     fi
 
 
