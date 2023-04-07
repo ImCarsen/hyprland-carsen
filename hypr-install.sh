@@ -69,7 +69,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
         #cp -R ./dotconfig/pipewire ~/.config/
         #cp -R ./dotconfig/swaylock ~/.config/
         #p -R ./dotconfig/wlogout ~/.config/
-        
+    fi
         
     # Set some files as exacutable 
     chmod +x ~/.config/hypr/xdg-portal-hyprland
