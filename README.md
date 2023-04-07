@@ -23,7 +23,9 @@
 Made to be run on a fresh install.
 Tested on EndeavourOS Cassini Nova 03-2023 R1 minimal installation
 ```
-./hypr-install.sh
+git clone https://github.com/ImCarsen/hyprland-carsen.git
+cd /hyprland-carsen
+sh hypr-install.sh
 ```
 
 ## Contributing and Discussions

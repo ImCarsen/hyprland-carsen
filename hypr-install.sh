@@ -58,6 +58,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     mkdir -p ~/.wallpapers && cp ./global/background.jpg $_
     cp -R ./global/waybar ~/.config/
     cp -R ./global/hypr ~/.config/hypr/
+    cp -R ./global/swaylock ~/.config/
     # VM or non-VM specific configs
     if (( $VM == "Y" || $VM == "y" )); then
         echo -e "Copying VM config files...\n"
