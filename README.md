@@ -23,7 +23,7 @@
 Made to be run on a fresh install.
 ```
 git clone https://github.com/ImCarsen/hyprland-carsen.git
-cd /hyprland-carsen
+cd hyprland-carsen/
 sh hypr-install.sh
 ```
 
