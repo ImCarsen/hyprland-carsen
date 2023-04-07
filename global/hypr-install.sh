@@ -54,32 +54,26 @@ fi
 read -n1 -rep 'Would you like to copy config files? (y,n)' CFG
 read -n1 -rep 'Are you running in a VM? (y,n)' VM
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
+    # Global configs
+    mkdir -p ~/.wallpapers && cp ./global/background.jpg $_
+    cp -R ./global/waybar ~/.config/
+    # VM or non-VM specific configs
     if (( $VM == "Y" || $VM == "y" )); then
-        echo -e "Copying config files...\n"
-        cp ./dotconfig/background.jpg ~/.wallpapers
+        echo -e "Copying VM config files...\n"
         cp -R ./vmdotconfig/hypr ~/.config/
-        #cp -R ./dotconfig/kitty ~/.config/
-        #cp -R ./dotconfig/pipewire ~/.config/
-        #cp -R ./dotconfig/swaylock ~/.config/
-        cp -R ./vmdotconfig/waybar ~/.config/
-        #p -R ./dotconfig/wlogout ~/.config/
         
-        # Set some files as exacutable 
-        chmod +x ~/.config/hypr/xdg-portal-hyprland
-        chmod +x ~/.config/waybar/scripts/waybar-wttr.py
     else
         echo -e "Copying config files...\n"
-        cp ./dotconfig/background.jpg ~/.wallpapers
         cp -R ./dotconfig/hypr ~/.config/
         #cp -R ./dotconfig/kitty ~/.config/
         #cp -R ./dotconfig/pipewire ~/.config/
         #cp -R ./dotconfig/swaylock ~/.config/
-        cp -R ./dotconfig/waybar ~/.config/
         #p -R ./dotconfig/wlogout ~/.config/
         
-        # Set some files as exacutable 
-        chmod +x ~/.config/hypr/xdg-portal-hyprland
-        chmod +x ~/.config/waybar/scripts/waybar-wttr.py
+        
+    # Set some files as exacutable 
+    chmod +x ~/.config/hypr/xdg-portal-hyprland
+    chmod +x ~/.config/waybar/scripts/waybar-wttr.py
 fi
 
 ### Enable SDDM Autologin ###
