@@ -1,13 +1,13 @@
 <h1 align="center">ImCarsen Hyprland Config</h1>
 <p align="center">
   <a href="https://choosealicense.com/licenses/mit/">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/ImCarsen/The-Wandering-Cosmos?style=for-the-badge" target="_blank" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/ImCarsen/hyprland-carsen?style=for-the-badge" target="_blank" />
   </a>
-  <a href="https://github.com/ImCarsen/-/commits/master">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/ImCarsen/-?style=for-the-badge" target="_blank" />
+  <a href="https://github.com/ImCarsen/hyprland-carsen/commits/master">
+    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/ImCarsen/hyprland-carsen?style=for-the-badge" target="_blank" />
   </a>
-  <a href="https://github.com/ImCarsen/-/issues">
-    <img alt="Open Issues" src="https://img.shields.io/github/issues/ImCarsen/?style=for-the-badge" target="_blank" />
+  <a href="https://github.com/ImCarsen/hyprland-carsen/issues">
+    <img alt="Open Issues" src="https://img.shields.io/github/issues/ImCarsen/hyprland-carsen?style=for-the-badge" target="_blank" />
   </a>
 </p>
 
@@ -16,7 +16,7 @@
 
 ## Screenshots
 
-![Screenshot1]()
+![Placeholder]()
 
 
 ## Usage
@@ -26,10 +26,9 @@ Tested on EndeavourOS Cassini Nova 03-2023 R1 minimal installation
 ./hypr-install.sh
 ```
 
-## Contributing
+## Contributing and Discussions
 
-Contributions are always welcome!
-Feel free to check [issues page](https://github.com/ImCarsen/-/issues) if you want to contribute.<br />
+Contributions are always welcome! If you want to contribute, feel free to check [issues page](https://github.com/ImCarsen/hyprland-carsen/issues) and the [discussions page](https://github.com/ImCarsen/hyprland-carsen/issues).<br />
 
 ## Acknowledgements and References
 I'm still super early on in this project and haven't been daily driving Linux for 2+ years. Bear with me.
