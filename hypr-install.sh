@@ -37,21 +37,21 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     if (( $VM == "Y" || $VM == "y" )); then
         yay -S --noconfirm hyprland foot waybar-hyprland   \
         swww-git swaylock-effects wofi wlogout mako thunar  \
-        thunar-archive-plugin nwg-look-bin                  \
+        thunar-archive-plugin nwg-look-bin fish-git         \
         ttf-jetbrains-mono-nerd noto-fonts-emoji            \
-        wlr-randr sddm-git starship fish-git                \
-        polkit-kde-agent python-requests                    \
-        swappy grim slurp pamixer brightnessctl gvfs        \
-        xdg-desktop-portal-hyprland-git qt6-wayland
+        wlr-randr sddm-git starship python-requests         \
+        polkit-kde-agent qt6-wayland qt5-wayland            \
+        swappy grim slurp brightnessctl gvfs                \
+        xdg-desktop-portal-hyprland-git
     else
         yay -S --noconfirm hyprland kitty waybar-hyprland   \
         swww-git swaylock-effects wofi wlogout mako thunar  \
-        thunar-archive-plugin nwg-look-bin                  \
+        thunar-archive-plugin nwg-look-bin fish-git         \
         ttf-jetbrains-mono-nerd noto-fonts-emoji            \
-        wlr-randr sddm-git starship fish-git                \
-        polkit-kde-agent python-requests                    \
-        swappy grim slurp pamixer brightnessctl gvfs        \
-        xdg-desktop-portal-hyprland-git qt6-wayland qt5-wayland
+        wlr-randr sddm-git starship python-requests         \
+        polkit-kde-agent qt6-wayland qt5-wayland            \
+        swappy grim slurp brightnessctl gvfs                \
+        xdg-desktop-portal-hyprland-git
     fi
 
 
