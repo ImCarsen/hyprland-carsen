@@ -177,11 +177,12 @@ read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to copy config files? (y,
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
     echo -e "$CNT - Copying global config files..."
     # Global configs
-    if (( -d "~/.wallpapers" )); then
-        cp global/background.jpg ~/.wallpapers/
+    WPDIR=~/.wallpapers/
+    if ( -d "$WPDIR" ); then
+        cp global/background.jpg $WPDIR
     else
         mkdir -p ~/.wallpapers
-        cp global/background.jpg ~/.wallpapers/
+        cp global/background.jpg $WPDIR
     fi
 
     for DIR in hypr swaylock waybar
