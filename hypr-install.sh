@@ -178,7 +178,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     echo -e "$CNT - Copying global config files..."
     # Global configs
     WPDIR=~/.wallpapers/
-    if ( -d "$WPDIR" ); then
+    if [ -d "$WPDIR" ]; then
         cp global/background.jpg $WPDIR
     else
         mkdir -p ~/.wallpapers
