@@ -225,7 +225,8 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp extras/start-hypr ~/
 
     #SDDM background
-    ln -sf ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+    #ln -sf ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+    cp ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/
 
     # Set some files as exacutable 
     echo -e "$CNT - Setting some files as executable."
