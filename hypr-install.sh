@@ -171,12 +171,13 @@ fi
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to copy config files? (y,n) ' CFG
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
     # VM or non-VM specific configs
+    echo $VM
     if (( $VM == "Y" || $VM == "y" )); then
-        echo -e "$CNT - Copying VM config files...\n" &>> $INSTLOG
-        cp -R vmdotconfig/hypr ~/.config/ &>> $INSTLOG
+        echo -e "$CNT - Copying VM config files...\n"
+        cp -R vmdotconfig/hypr ~/.config/
     else
-        echo -e "$CNT - Copying config files...\n" &>> $INSTLOG
-        cp -R dotconfig/hypr ~/.config/ &>> $INSTLOG
+        echo -e "$CNT - Copying config files...\n"
+        cp -R dotconfig/hypr ~/.config/
     fi
 
     echo -e "$CNT - Copying global config files..." &>> $INSTLOG
