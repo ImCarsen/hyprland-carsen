@@ -175,22 +175,13 @@ fi
 ### Copy Config Files ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to copy config files? (y,n) ' CFG
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
-    # VM or non-VM specific configs
-    if (( $VM == "Y" || $VM == "y" )); then
-        echo -e "$CNT - Copying VM config files...\n"
-        cp -R vmdotconfig/hypr ~/.config/
-    else
-        echo -e "$CNT - Copying config files...\n"
-        cp -R dotconfig/hypr ~/.config/
-    fi
-
-    echo -e "$CNT - Copying global config files..." &>> $INSTLOG
+    echo -e "$CNT - Copying global config files..."
     # Global configs
     if [ -d "~/.wallpapers"]; then
-        cp global/background.jpg ~/.wallpapers &>> $INSTLOG
+        cp global/background.jpg ~/.wallpapers/
     else
-        mkdir -p ~/.wallpapers &>> $INSTLOG
-        cp global/background.jpg ~/.wallpapers &>> $INSTLOG
+        mkdir -p ~/.wallpapers
+        cp global/background.jpg ~/.wallpapers/
     fi
 
     for DIR in hypr swaylock waybar
@@ -204,6 +195,16 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
         echo -e "$CNT - Copying $DIR config to $DIRPATH."  
         cp -R global/$DIR ~/.config/ &>> $INSTLOG
     done
+
+    # VM or non-VM specific configs
+    echo -e "$VM"
+    if (( $VM == "Y" || $VM == "y" )); then
+        echo -e "$CNT - Copying VM config files...\n"
+        cp -R vmdotconfig/hypr ~/.config/
+    else
+        echo -e "$CNT - Copying config files...\n"
+        cp -R dotconfig/hypr ~/.config/
+    fi
         
     # Set some files as exacutable 
     echo -e "$CNT - Setting some files as executable."
@@ -228,7 +229,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     sudo sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop
     cp extras/start-hypr ~/
 
-
+    #SDDM background
     ln -sf ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
 fi
 
