@@ -45,7 +45,11 @@ fi
 
 ### Check if user is using a VM ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Are you running in a VM? (y,n) ' VM
-echo -e "Is user in a VM - $VM" &>> $INSTLOG
+
+if [[ $VM == "Y" || $VM == "y" ]]; then
+    echo -e "User is using a VM" &>> $INSTLOG #Log
+    echo -e "VMs are known to cause issues in Hyprland. You have been warned."
+fi
 
 ### Disable wifi powersave mode ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to disable WiFi powersave? (y,n) ' WIFI
