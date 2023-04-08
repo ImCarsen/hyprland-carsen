@@ -38,7 +38,7 @@ I'm still super early on in this project and haven't been daily driving Linux fo
 Tested on EndeavourOS Cassini Nova 03-2023 R1 minimal installation in a VM, so things might not work yet on actual hardware.
 
 Based on:
-  - [SolDoesTech Hyprland](https://github.com/soldoestech/hyprland)
+  - [SolDoesTech HyprV2](https://github.com/SolDoesTech/HyprV2)
   - [ChrisTitusTech Hyprland](https://github.com/ChrisTitusTech/hyprland-titus)
 
 Useful resources:
