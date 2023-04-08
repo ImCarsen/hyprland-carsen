@@ -225,10 +225,10 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # VM or non-VM specific configs
     if (( $VM == "Y" || $VM == "y" )); then
-        echo -e "Copying VM config files...\n" &>> $INSTLOG
+        echo -e "$CNT - Copying VM config files...\n" &>> $INSTLOG
         cp -R vmdotconfig/hypr ~/.config/ &>> $INSTLOG
     else
-        echo -e "Copying config files...\n" &>> $INSTLOG
+        echo -e "$CNT - Copying config files...\n" &>> $INSTLOG
         cp -R dotconfig/hypr ~/.config/ &>> $INSTLOG
     fi
         
@@ -239,7 +239,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # Copy the SDDM theme
     echo -e "$CNT - Setting up the login screen."
-    sudo cp -R sdt /usr/share/sddm/themes/ &>> $INSTLOG
+    sudo cp -R global/sdt /usr/share/sddm/themes/ &>> $INSTLOG
     sudo chown -R $USER:$USER /usr/share/sddm/themes/sdt &>> $INSTLOG
     sudo mkdir /etc/sddm.conf.d &>> $INSTLOG
     echo -e "[Theme]\nCurrent=sdt" | sudo tee -a /etc/sddm.conf.d/10-theme.conf &>> $INSTLOG
@@ -253,6 +253,9 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     sudo cp extras/hyprland.desktop /usr/share/wayland-sessions/ &>> $INSTLOG
     sudo sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop &>> $INSTLOG
     cp extras/start-hypr ~/ &>> $INSTLOG
+
+
+    ln -sf ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
 fi
 
 ### Start hyprland now prompt ###
