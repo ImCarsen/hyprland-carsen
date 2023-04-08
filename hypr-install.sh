@@ -102,7 +102,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     fi
     #Stage 1
     echo -e "\n$CNT - Stage 1 - Installing main components, this may take a while..."
-    for SOFTWR in hyprland waybar-hyprland swww swaylock-effects wofi wlogout mako xdg-desktop-portal-hyprland-git swappy grim slurp thunar
+    for SOFTWR in hyprland waybar-hyprland swww-git swaylock-effects wofi wlogout mako xdg-desktop-portal-hyprland-git swappy grim slurp thunar
     do
         #First lets see if the package is there
         if yay -Qs $SOFTWR > /dev/null ; then
@@ -227,7 +227,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
         sudo mkdir $WLDIR
     fi 
     sudo cp extras/hyprland.desktop /usr/share/wayland-sessions/
-    sudo sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop
+    sudo sudo sed -i 's/Exec=Hyprland/Exec=sh \/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop
     cp extras/start-hypr ~/
 
     #SDDM background
