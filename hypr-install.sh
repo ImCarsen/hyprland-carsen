@@ -177,7 +177,7 @@ read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to copy config files? (y,
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
     echo -e "$CNT - Copying global config files..."
     # Global configs
-    if [ -d "~/.wallpapers"]; then
+    if (( -d "~/.wallpapers" )); then
         cp global/background.jpg ~/.wallpapers/
     else
         mkdir -p ~/.wallpapers
