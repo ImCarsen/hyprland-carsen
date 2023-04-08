@@ -14,6 +14,9 @@ CWR="[\e[1;35mWARNING\e[0m]"
 CAC="[\e[1;33mACTION\e[0m]"
 INSTLOG="install.log"
 
+#clear the screen
+clear
+
 echo -e "$CNT - You are about to execute a script that will attempt to setup Hyprland.
 Please note that Hyprland is still in Beta.
 Please report any issues on the gitub, thanks!
@@ -63,123 +66,91 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     # update the DB first
     echo -e "$COK - Updating yay database..."
     yay -Suy --noconfirm &>> $INSTLOG
-    # Install packages depending on if the user is in a VM or not
+    #Stage 1
+    echo -e "\n$CNT - Stage 1 - Installing main components, this may take a while..."
+    for SOFTWR in hyprland waybar-hyprland swww swaylock-effects wofi wlogout mako xdg-desktop-portal-hyprland-git swappy grim slurp thunar
+    do
+        #First lets see if the package is there
+        if yay -Qs $SOFTWR > /dev/null ; then
+            echo -e "$COK - $SOFTWR is already installed."
+        else
+            echo -e "$CNT - Now installing $SOFTWR ..."
+            yay -S --noconfirm $SOFTWR &>> $INSTLOG
+            if yay -Qs $SOFTWR > /dev/null ; then
+                echo -e "$COK - $SOFTWR was installed."
+            else
+                echo -e "$CER - $SOFTWR install had failed, please check the install.log"
+                exit
+            fi
+        fi
+    done
+
+    #Stage 2
+    echo -e "\n$CNT - Stage 2 - Installing additional tools and utilities, this may take a while..."
+    for SOFTWR in polkit-kde-agent python-requests brightnessctl bluez bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin file-roller btop pacman-contrib
+    do
+        #First lets see if the package is there
+        if yay -Qs $SOFTWR > /dev/null ; then
+            echo -e "$COK - $SOFTWR is already installed."
+        else
+            echo -e "$CNT - Now installing $SOFTWR ..."
+            yay -S --noconfirm $SOFTWR &>> $INSTLOG
+            if yay -Qs $SOFTWR > /dev/null ; then
+                echo -e "$COK - $SOFTWR was installed."
+            else
+                echo -e "$CER - $SOFTWR install had failed, please check the install.log"
+                exit
+            fi
+        fi
+    done
+
+    #Stage 3
+    echo -e "\n$CNT - Stage 3 - Installing theme and visual related tools and utilities, this may take a while..."
+    for SOFTWR in starship ttf-jetbrains-mono-nerd noto-fonts-emoji lxappearance xfce4-settings sddm-git sddm-sugar-candy-git 
+    do
+        #First lets see if the package is there
+        if yay -Qs $SOFTWR > /dev/null ; then
+            echo -e "$COK - $SOFTWR is already installed."
+        else
+            echo -e "$CNT - Now installing $SOFTWR ..."
+            yay -S --noconfirm $SOFTWR &>> $INSTLOG
+            if yay -Qs $SOFTWR > /dev/null ; then
+                echo -e "$COK - $SOFTWR was installed."
+            else
+                echo -e "$CER - $SOFTWR install had failed, please check the install.log"
+                exit
+            fi
+        fi
+    done
+
+    #Install terminal (Trouble with kitty on VMs)
     if (( $VM == "Y" || $VM == "y" )); then
-        #Stage 1
-        echo -e "\n$CNT - Stage 1 - Installing main components, this may take a while..."
-        for SOFTWR in hyprland foot waybar-hyprland swww swaylock-effects wofi wlogout mako xdg-desktop-portal-hyprland-git swappy grim slurp thunar
-        do
-            #First lets see if the package is there
-            if yay -Qs $SOFTWR > /dev/null ; then
-                echo -e "$COK - $SOFTWR is already installed."
+        if yay -Qs foot > /dev/null ; then
+            echo -e "$COK - $SOFTWR is already installed."
+        else
+            echo -e "$CNT - Now installing $SOFTWR ..."
+            yay -S --noconfirm foot &>> $INSTLOG
+            if yay -Qs foot > /dev/null ; then
+                echo -e "$COK - $SOFTWR was installed."
             else
-                echo -e "$CNT - Now installing $SOFTWR ..."
-                yay -S --noconfirm $SOFTWR &>> $INSTLOG
-                if yay -Qs $SOFTWR > /dev/null ; then
-                    echo -e "$COK - $SOFTWR was installed."
-                else
-                    echo -e "$CER - $SOFTWR install had failed, please check the install.log"
-                    exit
-                fi
+                echo -e "$CER - $SOFTWR install had failed, please check the install.log"
+                exit
             fi
-        done
-
-        #Stage 2
-        echo -e "\n$CNT - Stage 2 - Installing additional tools and utilities, this may take a while..."
-        for SOFTWR in polkit-kde-agent python-requests brightnessctl bluez bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin file-roller btop pacman-contrib
-        do
-            #First lets see if the package is there
-            if yay -Qs $SOFTWR > /dev/null ; then
-                echo -e "$COK - $SOFTWR is already installed."
-            else
-                echo -e "$CNT - Now installing $SOFTWR ..."
-                yay -S --noconfirm $SOFTWR &>> $INSTLOG
-                if yay -Qs $SOFTWR > /dev/null ; then
-                    echo -e "$COK - $SOFTWR was installed."
-                else
-                    echo -e "$CER - $SOFTWR install had failed, please check the install.log"
-                    exit
-                fi
-            fi
-        done
-
-        #Stage 3
-        echo -e "\n$CNT - Stage 3 - Installing theme and visual related tools and utilities, this may take a while..."
-        for SOFTWR in starship ttf-jetbrains-mono-nerd noto-fonts-emoji lxappearance xfce4-settings sddm-git sddm-sugar-candy-git 
-        do
-            #First lets see if the package is there
-            if yay -Qs $SOFTWR > /dev/null ; then
-                echo -e "$COK - $SOFTWR is already installed."
-            else
-                echo -e "$CNT - Now installing $SOFTWR ..."
-                yay -S --noconfirm $SOFTWR &>> $INSTLOG
-                if yay -Qs $SOFTWR > /dev/null ; then
-                    echo -e "$COK - $SOFTWR was installed."
-                else
-                    echo -e "$CER - $SOFTWR install had failed, please check the install.log"
-                    exit
-                fi
-            fi
-        done
+        fi
     else
-        #Stage 1
-        echo -e "\n$CNT - Stage 1 - Installing main components, this may take a while..."
-        for SOFTWR in hyprland kitty waybar-hyprland swww swaylock-effects wofi wlogout mako xdg-desktop-portal-hyprland-git swappy grim slurp thunar
-        do
-            #First lets see if the package is there
-            if yay -Qs $SOFTWR > /dev/null ; then
-                echo -e "$COK - $SOFTWR is already installed."
+        if yay -Qs kitty > /dev/null ; then
+            echo -e "$COK - $SOFTWR is already installed."
+        else
+            echo -e "$CNT - Now installing $SOFTWR ..."
+            yay -S --noconfirm kitty &>> $INSTLOG
+            if yay -Qs kitty > /dev/null ; then
+                echo -e "$COK - $SOFTWR was installed."
             else
-                echo -e "$CNT - Now installing $SOFTWR ..."
-                yay -S --noconfirm $SOFTWR &>> $INSTLOG
-                if yay -Qs $SOFTWR > /dev/null ; then
-                    echo -e "$COK - $SOFTWR was installed."
-                else
-                    echo -e "$CER - $SOFTWR install had failed, please check the install.log"
-                    exit
-                fi
+                echo -e "$CER - $SOFTWR install had failed, please check the install.log"
+                exit
             fi
-        done
-
-        #Stage 2
-        echo -e "\n$CNT - Stage 2 - Installing additional tools and utilities, this may take a while..."
-        for SOFTWR in polkit-kde-agent python-requests brightnessctl bluez bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin file-roller btop pacman-contrib qt6-wayland qt5-wayland nwg-look-bin wlr-randr
-        do
-            #First lets see if the package is there
-            if yay -Qs $SOFTWR > /dev/null ; then
-                echo -e "$COK - $SOFTWR is already installed."
-            else
-                echo -e "$CNT - Now installing $SOFTWR ..."
-                yay -S --noconfirm $SOFTWR &>> $INSTLOG
-                if yay -Qs $SOFTWR > /dev/null ; then
-                    echo -e "$COK - $SOFTWR was installed."
-                else
-                    echo -e "$CER - $SOFTWR install had failed, please check the install.log"
-                    exit
-                fi
-            fi
-        done
-
-        #Stage 3
-        echo -e "\n$CNT - Stage 3 - Installing theme and visual related tools and utilities, this may take a while..."
-        for SOFTWR in starship ttf-jetbrains-mono-nerd noto-fonts-emoji lxappearance xfce4-settings sddm-git sddm-sugar-candy-git 
-        do
-            #First lets see if the package is there
-            if yay -Qs $SOFTWR > /dev/null ; then
-                echo -e "$COK - $SOFTWR is already installed."
-            else
-                echo -e "$CNT - Now installing $SOFTWR ..."
-                yay -S --noconfirm $SOFTWR &>> $INSTLOG
-                if yay -Qs $SOFTWR > /dev/null ; then
-                    echo -e "$COK - $SOFTWR was installed."
-                else
-                    echo -e "$CER - $SOFTWR install had failed, please check the install.log"
-                    exit
-                fi
-            fi
-        done
+        fi
     fi
-
 
     # Start the bluetooth service
     echo -e "$CNT - Starting the Bluetooth Service..."
@@ -199,12 +170,22 @@ fi
 ### Copy Config Files ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to copy config files? (y,n) ' CFG
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
+    # VM or non-VM specific configs
+    if (( $VM == "Y" || $VM == "y" )); then
+        echo -e "$CNT - Copying VM config files...\n" &>> $INSTLOG
+        cp -R vmdotconfig/hypr ~/.config/ &>> $INSTLOG
+    else
+        echo -e "$CNT - Copying config files...\n" &>> $INSTLOG
+        cp -R dotconfig/hypr ~/.config/ &>> $INSTLOG
+    fi
+
     echo -e "$CNT - Copying global config files..." &>> $INSTLOG
     # Global configs
     if [ -d "~/.wallpapers"]; then
         cp global/background.jpg ~/.wallpapers &>> $INSTLOG
     else
-        mkdir -p ~/.wallpapers && cp global/background.jpg $_ &>> $INSTLOG
+        mkdir -p ~/.wallpapers &>> $INSTLOG
+        cp global/background.jpg ~/.wallpapers &>> $INSTLOG
     fi
 
     for DIR in hypr swaylock waybar
@@ -218,46 +199,36 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
         echo -e "$CNT - Copying $DIR config to $DIRPATH."  
         cp -R global/$DIR ~/.config/ &>> $INSTLOG
     done
-
-    #cp -R ./global/waybar ~/.config/ &>> $INSTLOG
-    #cp -R ./global/hypr ~/.config/hypr/ &>> $INSTLOG
-    #cp -R ./global/swaylock ~/.config/ &>> $INSTLOG
-
-    # VM or non-VM specific configs
-    if (( $VM == "Y" || $VM == "y" )); then
-        echo -e "$CNT - Copying VM config files...\n" &>> $INSTLOG
-        cp -R vmdotconfig/hypr ~/.config/ &>> $INSTLOG
-    else
-        echo -e "$CNT - Copying config files...\n" &>> $INSTLOG
-        cp -R dotconfig/hypr ~/.config/ &>> $INSTLOG
-    fi
         
     # Set some files as exacutable 
-    echo -e "$CNT - Setting some files as executable." &>> $INSTLOG
-    chmod +x ~/.config/hypr/xdg-portal-hyprland &>> $INSTLOG
-    chmod +x ~/.config/waybar/scripts/waybar-wttr.py &>> $INSTLOG
+    echo -e "$CNT - Setting some files as executable."
+    chmod +x ~/.config/hypr/scripts/bgaction
+    chmod +x ~/.config/hypr/scripts/xdg-portal-hyprland
+    chmod +x ~/.config/waybar/scripts/waybar-wttr.py
 
     # Copy the SDDM theme
     echo -e "$CNT - Setting up the login screen."
-    sudo cp -R global/sdt /usr/share/sddm/themes/ &>> $INSTLOG
-    sudo chown -R $USER:$USER /usr/share/sddm/themes/sdt &>> $INSTLOG
-    sudo mkdir /etc/sddm.conf.d &>> $INSTLOG
-    echo -e "[Theme]\nCurrent=sdt" | sudo tee -a /etc/sddm.conf.d/10-theme.conf &>> $INSTLOG
+    sudo cp -R global/sdt /usr/share/sddm/themes/
+    sudo chown -R $USER:$USER /usr/share/sddm/themes/sdt
+    sudo mkdir /etc/sddm.conf.d
+    echo -e "[Theme]\nCurrent=sdt" | sudo tee -a /etc/sddm.conf.d/10-theme.conf
     WLDIR=/usr/share/wayland-sessions
     if [ -d "$WLDIR" ]; then
-        echo -e "$COK - $WLDIR found" &>> $INSTLOG
+        echo -e "$COK - $WLDIR found"
     else
-        echo -e "$CWR - $WLDIR NOT found, creating..." &>> $INSTLOG
-        sudo mkdir $WLDIR &>> $INSTLOG
+        echo -e "$CWR - $WLDIR NOT found, creating..."
+        sudo mkdir $WLDIR
     fi 
-    sudo cp extras/hyprland.desktop /usr/share/wayland-sessions/ &>> $INSTLOG
-    sudo sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop &>> $INSTLOG
-    cp extras/start-hypr ~/ &>> $INSTLOG
+    sudo cp extras/hyprland.desktop /usr/share/wayland-sessions/
+    sudo sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop
+    cp extras/start-hypr ~/
 
 
     ln -sf ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
 fi
 
+### Script is done ###
+echo -e "$CNT - Script has completed!"
 ### Start hyprland now prompt ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to start Hyprland now? (y,n) ' HYP
 if [[ $HYP == "Y" || $HYP == "y" ]]; then
@@ -266,6 +237,4 @@ else
     exit
 fi
 
-### Script is done ###
-echo -e "Script has completed.\n" &>> $INSTLOG
 echo -e "You can start Hyprland by typing Hyprland (note the capital H).\n"
