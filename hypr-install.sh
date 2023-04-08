@@ -206,12 +206,6 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
         echo -e "$CNT - Copying config files...\n"
         cp -R dotconfig/hypr ~/.config/
     fi
-        
-    # Set some files as exacutable 
-    echo -e "$CNT - Setting some files as executable."
-    chmod +x ~/.config/hypr/scripts/bgaction
-    chmod +x ~/.config/hypr/scripts/xdg-portal-hyprland
-    chmod +x ~/.config/waybar/scripts/waybar-wttr.py
 
     # Copy the SDDM theme
     echo -e "$CNT - Setting up the login screen."
@@ -227,11 +221,20 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
         sudo mkdir $WLDIR
     fi 
     sudo cp extras/hyprland.desktop /usr/share/wayland-sessions/
-    sudo sudo sed -i 's/Exec=Hyprland/Exec=sh \/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop
+    sudo sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop
     cp extras/start-hypr ~/
 
     #SDDM background
     ln -sf ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
+
+    # Set some files as exacutable 
+    echo -e "$CNT - Setting some files as executable."
+    chmod +x ~/.config/hypr/scripts/bgaction
+    chmod +x ~/.config/hypr/scripts/xdg-portal-hyprland
+    chmod +x ~/.config/waybar/scripts/waybar-wttr.py
+    chmod +x ~/start-hypr
+    
+
 fi
 
 ### Script is done ###
