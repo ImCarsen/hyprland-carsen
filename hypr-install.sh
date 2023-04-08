@@ -197,7 +197,7 @@ fi
 ### Copy Config Files ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to copy config files? (y,n) ' CFG
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
-    echo -e "$CNT - Copying global config files..."
+    echo -e "$CNT - Copying global config files..." &>> $INSTLOG
     # Global configs
     if [ -d "~/.wallpapers"]; then
         cp global/background.jpg ~/.wallpapers &>> $INSTLOG
@@ -223,49 +223,37 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     # VM or non-VM specific configs
     if (( $VM == "Y" || $VM == "y" )); then
-        echo -e "Copying VM config files...\n"
-        cp -R vmdotconfig/hypr ~/.config/
+        echo -e "Copying VM config files...\n" &>> $INSTLOG
+        cp -R vmdotconfig/hypr ~/.config/ &>> $INSTLOG
     else
-        echo -e "Copying config files...\n"
-        cp -R dotconfig/hypr ~/.config/
+        echo -e "Copying config files...\n" &>> $INSTLOG
+        cp -R dotconfig/hypr ~/.config/ &>> $INSTLOG
     fi
         
     # Set some files as exacutable 
-    echo -e "$CNT - Setting some file as executable." 
-    chmod +x ~/.config/hypr/xdg-portal-hyprland
-    chmod +x ~/.config/waybar/scripts/waybar-wttr.py
+    echo -e "$CNT - Setting some files as executable." &>> $INSTLOG
+    chmod +x ~/.config/hypr/xdg-portal-hyprland &>> $INSTLOG
+    chmod +x ~/.config/waybar/scripts/waybar-wttr.py &>> $INSTLOG
 
     # Copy the SDDM theme
     echo -e "$CNT - Setting up the login screen."
-    sudo cp -R sdt /usr/share/sddm/themes/
-    sudo chown -R $USER:$USER /usr/share/sddm/themes/sdt
-    sudo mkdir /etc/sddm.conf.d
+    sudo cp -R sdt /usr/share/sddm/themes/ &>> $INSTLOG
+    sudo chown -R $USER:$USER /usr/share/sddm/themes/sdt &>> $INSTLOG
+    sudo mkdir /etc/sddm.conf.d &>> $INSTLOG
     echo -e "[Theme]\nCurrent=sdt" | sudo tee -a /etc/sddm.conf.d/10-theme.conf &>> $INSTLOG
     WLDIR=/usr/share/wayland-sessions
     if [ -d "$WLDIR" ]; then
-        echo -e "$COK - $WLDIR found"
+        echo -e "$COK - $WLDIR found" &>> $INSTLOG
     else
-        echo -e "$CWR - $WLDIR NOT found, creating..."
-        sudo mkdir $WLDIR
+        echo -e "$CWR - $WLDIR NOT found, creating..." &>> $INSTLOG
+        sudo mkdir $WLDIR &>> $INSTLOG
     fi 
-    sudo cp extras/hyprland.desktop /usr/share/wayland-sessions/
-    sudo sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop
-    cp extras/start-hypr ~/
+    sudo cp extras/hyprland.desktop /usr/share/wayland-sessions/ &>> $INSTLOG
+    sudo sudo sed -i 's/Exec=Hyprland/Exec=\/home\/'$USER'\/start-hypr/' /usr/share/wayland-sessions/hyprland.desktop &>> $INSTLOG
+    cp extras/start-hypr ~/ &>> $INSTLOG
 fi
 
-### Enable SDDM Autologin ###
-read -n1 -rep 'Would you like to enable SDDM autologin? (y,n)' ALOG
-if [[ $ALOG == "Y" || $ALOG == "y" ]]; then
-    LOC="/etc/sddm.conf"
-    echo -e "The following has been added to $LOC.\n"
-    echo -e "[Autologin]\nUser = $(whoami)\nSession=hyprland" | sudo tee -a $LOC
-    echo -e "\n"
-    echo -e "Enable SDDM service...\n"
-    sudo systemctl enable sddm
-    sleep 3
-fi
-
-# Start now prompt
+# Start hyprland now prompt
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to start Hyprland now? (y,n) ' HYP
 if [[ $HYP == "Y" || $HYP == "y" ]]; then
     exec sudo systemctl start sddm &>> $INSTLOG
@@ -273,5 +261,5 @@ else
     exit
 fi
 ### Script is done ###
-echo -e "Script has completed.\n"
+echo -e "Script has completed.\n" &>> $INSTLOG
 echo -e "You can start Hyprland by typing Hyprland (note the capital H).\n"
