@@ -39,7 +39,9 @@ else
         exit
     fi
 fi
-read -n1 -rep 'Are you running in a VM? (y,n)' VM
+
+### Check if user is using a VM ###
+read -n1 -rep $'[\e[1;33mACTION\e[0m] - Are you running in a VM? (y,n) ' VM
 
 ### Disable wifi powersave mode ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to disable WiFi powersave? (y,n) ' WIFI
@@ -253,13 +255,14 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     cp extras/start-hypr ~/ &>> $INSTLOG
 fi
 
-# Start hyprland now prompt
+### Start hyprland now prompt ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to start Hyprland now? (y,n) ' HYP
 if [[ $HYP == "Y" || $HYP == "y" ]]; then
     exec sudo systemctl start sddm &>> $INSTLOG
 else
     exit
 fi
+
 ### Script is done ###
 echo -e "Script has completed.\n" &>> $INSTLOG
 echo -e "You can start Hyprland by typing Hyprland (note the capital H).\n"
