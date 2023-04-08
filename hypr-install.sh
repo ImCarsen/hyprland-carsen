@@ -45,6 +45,7 @@ fi
 
 ### Check if user is using a VM ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Are you running in a VM? (y,n) ' VM
+echo -e "Is user in a VM - $VM" &>> $INSTLOG
 
 ### Disable wifi powersave mode ###
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to disable WiFi powersave? (y,n) ' WIFI
@@ -66,6 +67,35 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     # update the DB first
     echo -e "$COK - Updating yay database..."
     yay -Suy --noconfirm &>> $INSTLOG
+
+    #Install terminal (Trouble with kitty on VMs)
+    if (( $VM == "Y" || $VM == "y" )); then
+        if yay -Qs foot > /dev/null ; then
+            echo -e "$COK - $SOFTWR is already installed."
+        else
+            echo -e "$CNT - Now installing $SOFTWR ..."
+            yay -S --noconfirm foot &>> $INSTLOG
+            if yay -Qs foot > /dev/null ; then
+                echo -e "$COK - $SOFTWR was installed."
+            else
+                echo -e "$CER - $SOFTWR install had failed, please check the install.log"
+                exit
+            fi
+        fi
+    else
+        if yay -Qs kitty > /dev/null ; then
+            echo -e "$COK - $SOFTWR is already installed."
+        else
+            echo -e "$CNT - Now installing $SOFTWR ..."
+            yay -S --noconfirm kitty &>> $INSTLOG
+            if yay -Qs kitty > /dev/null ; then
+                echo -e "$COK - $SOFTWR was installed."
+            else
+                echo -e "$CER - $SOFTWR install had failed, please check the install.log"
+                exit
+            fi
+        fi
+    fi
     #Stage 1
     echo -e "\n$CNT - Stage 1 - Installing main components, this may take a while..."
     for SOFTWR in hyprland waybar-hyprland swww swaylock-effects wofi wlogout mako xdg-desktop-portal-hyprland-git swappy grim slurp thunar
@@ -123,35 +153,6 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
         fi
     done
 
-    #Install terminal (Trouble with kitty on VMs)
-    if (( $VM == "Y" || $VM == "y" )); then
-        if yay -Qs foot > /dev/null ; then
-            echo -e "$COK - $SOFTWR is already installed."
-        else
-            echo -e "$CNT - Now installing $SOFTWR ..."
-            yay -S --noconfirm foot &>> $INSTLOG
-            if yay -Qs foot > /dev/null ; then
-                echo -e "$COK - $SOFTWR was installed."
-            else
-                echo -e "$CER - $SOFTWR install had failed, please check the install.log"
-                exit
-            fi
-        fi
-    else
-        if yay -Qs kitty > /dev/null ; then
-            echo -e "$COK - $SOFTWR is already installed."
-        else
-            echo -e "$CNT - Now installing $SOFTWR ..."
-            yay -S --noconfirm kitty &>> $INSTLOG
-            if yay -Qs kitty > /dev/null ; then
-                echo -e "$COK - $SOFTWR was installed."
-            else
-                echo -e "$CER - $SOFTWR install had failed, please check the install.log"
-                exit
-            fi
-        fi
-    fi
-
     # Start the bluetooth service
     echo -e "$CNT - Starting the Bluetooth Service..."
     sudo systemctl enable --now bluetooth.service &>> $INSTLOG
@@ -171,7 +172,6 @@ fi
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to copy config files? (y,n) ' CFG
 if [[ $CFG == "Y" || $CFG == "y" ]]; then
     # VM or non-VM specific configs
-    echo $VM
     if (( $VM == "Y" || $VM == "y" )); then
         echo -e "$CNT - Copying VM config files...\n"
         cp -R vmdotconfig/hypr ~/.config/
