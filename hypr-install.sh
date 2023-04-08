@@ -74,12 +74,12 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     #Install terminal (Trouble with kitty on VMs)
     if (( $VM == "Y" || $VM == "y" )); then
-        if yay -Qs foot > /dev/null ; then
+        if yay -Qi foot > /dev/null ; then
             echo -e "$COK - foot is already installed."
         else
             echo -e "$CNT - Now installing foot ..."
             yay -S --noconfirm foot &>> $INSTLOG
-            if yay -Qs foot > /dev/null ; then
+            if yay -Qi foot > /dev/null ; then
                 echo -e "$COK - foot was installed."
             else
                 echo -e "$CER - foot install had failed, please check the install.log"
@@ -87,12 +87,12 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
             fi
         fi
     else
-        if yay -Qs kitty > /dev/null ; then
+        if yay -Qi kitty > /dev/null ; then
             echo -e "$COK - kitty is already installed."
         else
             echo -e "$CNT - Now installing kitty ..."
             yay -S --noconfirm kitty &>> $INSTLOG
-            if yay -Qs kitty > /dev/null ; then
+            if yay -Qi kitty > /dev/null ; then
                 echo -e "$COK - kitty was installed."
             else
                 echo -e "$CER - kitty install had failed, please check the install.log"
