@@ -21,7 +21,7 @@
 
 ## Usage
 Made to be run on a fresh install.
-```
+```bash
 git clone https://github.com/ImCarsen/hyprland-carsen.git
 cd hyprland-carsen/
 sh hypr-install.sh
@@ -51,7 +51,24 @@ Based on:
 
 Useful resources:
   - [Hyprland Wiki](https://wiki.hyprland.org/)
- 
+
+## Packages
+
+Main components:
+| Package Name | Description |
+|-|-|
+| [hyprland](https://github.com/hyprwm/hyprland-wiki) | Hyprland is a highly customizable dynamic tiling Wayland compositor that doesn't sacrifice on its looks.
+| [waybar-hyprland](https://github.com/Alexays/Waybar) | Highly customizable Wayland bar for Sway and Wlroots based compositors. ✌️ 🎉
+| [swww-git](https://github.com/Horus645/swww) | A Solution to your Wayland Wallpaper Woes
+| [swaylock-effects](https://github.com/jirutka/swaylock-effects) | Swaylock, with fancy effects
+| [wofi](https://hg.sr.ht/~scoopta/wofi) | Wofi is a launcher/menu program for wlroots based wayland compositors such as sway
+| [wlogout](https://github.com/ArtsyMacaw/wlogout) | A wayland based logout menu
+| [mako](https://github.com/emersion/mako) | A lightweight Wayland notification daemon
+| [xdg-desktop-portal-hyprland-git](https://github.com/hyprwm/xdg-desktop-portal-hyprland) | xdg-desktop-portal backend for hyprland
+| [swappy-git](https://github.com/jtheoof/swappy) | A Wayland native snapshot editing tool, inspired by Snappy on macOS
+| [grim-git](https://sr.ht/~emersion/grim/) | Grab images from a Wayland compositor.
+| [slurp-git](https://github.com/emersion/slurp) | Select a region in a Wayland compositor
+| [thunar-git](https://gitlab.xfce.org/xfce/thunar) | Modern, fast and easy-to-use file manager for Xfce
 
 ## Author
 

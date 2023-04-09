@@ -102,7 +102,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     fi
     #Stage 1
     echo -e "\n$CNT - Stage 1 - Installing main components, this may take a while..."
-    for SOFTWR in hyprland waybar-hyprland swww-git swaylock-effects wofi wlogout mako xdg-desktop-portal-hyprland-git swappy grim slurp thunar
+    for SOFTWR in hyprland waybar-hyprland swww-git swaylock-effects wofi wlogout mako xdg-desktop-portal-hyprland-git swappy-git grim-git slurp-git thunar-git
     do
         #First lets see if the package is there
         if yay -Qs $SOFTWR > /dev/null ; then
@@ -140,7 +140,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     #Stage 3
     echo -e "\n$CNT - Stage 3 - Installing theme and visual related tools and utilities, this may take a while..."
-    for SOFTWR in starship ttf-jetbrains-mono-nerd noto-fonts-emoji nwg-look xfce4-settings sddm-git
+    for SOFTWR in starship ttf-jetbrains-mono-nerd noto-fonts-emoji nwg-look-bin xfce4-settings sddm-git sddm-sugar-candy-git
     do
         #First lets see if the package is there
         if yay -Qs $SOFTWR > /dev/null ; then
