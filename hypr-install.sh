@@ -22,7 +22,7 @@ Please note that Hyprland is still in Beta.
 Please report any issues on the gitub, thanks!
 \n"
 
-sleep 3
+sleep 2
 
 #### Check for yay ####
 ISYAY=/sbin/yay
@@ -61,7 +61,7 @@ if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
     echo -e "$CNT - Restarting NetworkManager service..."
     sleep 1
     sudo systemctl restart NetworkManager &>> $INSTLOG
-    sleep 3
+    sleep 2
 fi
 
 ### Install all packages ####
@@ -160,12 +160,12 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
     # Start the bluetooth service
     echo -e "$CNT - Starting the Bluetooth Service..."
     sudo systemctl enable --now bluetooth.service &>> $INSTLOG
-    sleep 2
+    sleep 1
 
     # Enable the sddm login manager service
     echo -e "$CNT - Enabling the SDDM Service..."
     sudo systemctl enable sddm &>> $INSTLOG
-    sleep 2
+    sleep 1
     
     # Clean out other portals
     echo -e "$CNT - Cleaning out conflicting xdg portals..."
