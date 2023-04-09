@@ -210,6 +210,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
     # Copy the SDDM theme
     echo -e "$CNT - Setting up the login screen."
     sudo cp -R global/sdt /usr/share/sddm/themes/
+    cp ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/
     sudo chown -R $USER:$USER /usr/share/sddm/themes/sdt
     sudo mkdir /etc/sddm.conf.d
     echo -e "[Theme]\nCurrent=sdt" | sudo tee -a /etc/sddm.conf.d/10-theme.conf
@@ -226,7 +227,7 @@ if [[ $CFG == "Y" || $CFG == "y" ]]; then
 
     #SDDM background
     #ln -sf ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/wallpaper.jpg
-    cp ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/
+    #cp ~/.wallpapers/background.jpg /usr/share/sddm/themes/sdt/
 
     # Set some files as exacutable 
     echo -e "$CNT - Setting some files as executable."

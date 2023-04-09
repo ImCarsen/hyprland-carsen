@@ -35,7 +35,14 @@ Contributions are always welcome! If you want to contribute, feel free to check 
 ## Acknowledgements and References
 I'm still super early on in this project and haven't been daily driving Linux for 2+ years. Bear with me.
 
-Tested on EndeavourOS Cassini Nova 03-2023 R1 minimal installation in a VM, so things might not work yet on actual hardware.
+✅ = Working
+❎ = Working in VM
+❌ = Not working
+Tested on:
+❎ EndeavourOS Cassini Nova 03-2023 R1 minimal installation 
+❎ Arch Linux
+
+All are tested in a VM, so things might not work yet on actual hardware.
 
 Based on:
   - [SolDoesTech HyprV2](https://github.com/SolDoesTech/HyprV2)
