@@ -47,8 +47,8 @@ fi
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Are you running in a VM? (y,n) ' VM
 
 if [[ $VM == "Y" || $VM == "y" ]]; then
-    echo -e "User is using a VM" &>> $INSTLOG #Log
-    echo -e "VMs are known to cause issues in Hyprland. You have been warned."
+    echo -e "!! USER IS USING A VM !!" &>> $INSTLOG #Log that the user is in a VM
+    echo -e "$CWR - Please keep in mind that VMs are known to cause issues in Hyprland."
 fi
 
 ### Disable wifi powersave mode ###
@@ -121,7 +121,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     #Stage 2
     echo -e "\n$CNT - Stage 2 - Installing additional tools and utilities, this may take a while..."
-    for SOFTWR in polkit-kde-agent python-requests brightnessctl bluez bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin file-roller btop pacman-contrib
+    for SOFTWR in polkit-kde-agent python-requests wlsunset bluez bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin file-roller btop pacman-contrib nwg-displays
     do
         #First lets see if the package is there
         if yay -Qs $SOFTWR > /dev/null ; then
@@ -140,7 +140,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     #Stage 3
     echo -e "\n$CNT - Stage 3 - Installing theme and visual related tools and utilities, this may take a while..."
-    for SOFTWR in starship ttf-jetbrains-mono-nerd noto-fonts-emoji lxappearance xfce4-settings sddm-git sddm-sugar-candy-git 
+    for SOFTWR in starship ttf-jetbrains-mono-nerd noto-fonts-emoji nwg-look xfce4-settings sddm-git
     do
         #First lets see if the package is there
         if yay -Qs $SOFTWR > /dev/null ; then
