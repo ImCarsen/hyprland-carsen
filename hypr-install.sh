@@ -121,7 +121,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     #Stage 2
     echo -e "\n$CNT - Stage 2 - Installing additional tools and utilities, this may take a while..."
-    for SOFTWR in polkit-kde-agent python-requests wlsunset bluez bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin file-roller btop pacman-contrib nwg-displays
+    for SOFTWR in polkit-kde-agent python-requests wlsunset bluez bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin file-roller btop pacman-contrib nwg-displays wlr-randr
     do
         #First lets see if the package is there
         if yay -Qs $SOFTWR > /dev/null ; then
