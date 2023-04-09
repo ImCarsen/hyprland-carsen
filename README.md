@@ -38,6 +38,7 @@ I'm still super early on in this project and haven't been daily driving Linux fo
 ✅ = Working
 ❎ = Working in VM
 ❌ = Not working
+
 Tested on:
 ❎ EndeavourOS Cassini Nova 03-2023 R1 minimal installation 
 ❎ Arch Linux
