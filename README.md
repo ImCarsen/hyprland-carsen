@@ -65,10 +65,10 @@ Main components:
 | [wlogout](https://github.com/ArtsyMacaw/wlogout) | A wayland based logout menu
 | [mako](https://github.com/emersion/mako) | A lightweight Wayland notification daemon
 | [xdg-desktop-portal-hyprland-git](https://github.com/hyprwm/xdg-desktop-portal-hyprland) | xdg-desktop-portal backend for hyprland
-| [swappy-git](https://github.com/jtheoof/swappy) | A Wayland native snapshot editing tool, inspired by Snappy on macOS
-| [grim-git](https://sr.ht/~emersion/grim/) | Grab images from a Wayland compositor.
-| [slurp-git](https://github.com/emersion/slurp) | Select a region in a Wayland compositor
-| [thunar-git](https://gitlab.xfce.org/xfce/thunar) | Modern, fast and easy-to-use file manager for Xfce
+| [swappy](https://github.com/jtheoof/swappy) | A Wayland native snapshot editing tool, inspired by Snappy on macOS
+| [grim](https://sr.ht/~emersion/grim/) | Grab images from a Wayland compositor.
+| [slurp](https://github.com/emersion/slurp) | Select a region in a Wayland compositor
+| [thunar](https://gitlab.xfce.org/xfce/thunar) | Modern, fast and easy-to-use file manager for Xfce
 
 ## Author
 
