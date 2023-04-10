@@ -121,7 +121,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     #Stage 2
     echo -e "\n$CNT - Stage 2 - Installing additional tools and utilities, this may take a while..."
-    for SOFTWR in polkit-kde-agent python-requests wlsunset bluez bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin file-roller btop pacman-contrib nwg-displays wlr-randr
+    for SOFTWR in polkit-gnome python-requests wlsunset bluez bluez-utils blueman network-manager-applet gvfs thunar-archive-plugin file-roller btop pacman-contrib nwg-displays wlr-randr
     do
         #First lets see if the package is there
         if yay -Qs $SOFTWR > /dev/null ; then
@@ -140,7 +140,7 @@ if [[ $INST == "Y" || $INST == "y" ]]; then
 
     #Stage 3
     echo -e "\n$CNT - Stage 3 - Installing theme and visual related tools and utilities, this may take a while..."
-    for SOFTWR in starship ttf-jetbrains-mono-nerd noto-fonts-emoji nwg-look-bin xfce4-settings sddm-git sddm-sugar-candy-git
+    for SOFTWR in starship ttf-jetbrains-mono-nerd noto-fonts-emoji nwg-look-bin xfce4-settings sddm-git qt5-graphicaleffects qt5-quickcontrols2 qt5-svg 
     do
         #First lets see if the package is there
         if yay -Qs $SOFTWR > /dev/null ; then

@@ -70,6 +70,37 @@ Main components:
 | [slurp](https://github.com/emersion/slurp) | Select a region in a Wayland compositor
 | [thunar](https://gitlab.xfce.org/xfce/thunar) | Modern, fast and easy-to-use file manager for Xfce
 
+Additional tools and utilities:
+| Package Name | Description |
+|-|-|
+| [polkit-gnome](https://gitlab.freedesktop.org/polkit/polkit/) | polkit is a toolkit for defining and handling authorizations. It is used for allowing unprivileged processes to speak to privileged processes.
+| [python-requests](https://github.com/psf/requests) | HTML Parsing for Humans - Used for waybar-wttr.py
+| [wlsunset](https://sr.ht/~kennylevinsen/wlsunset/) | Day/night gamma adjustments for Wayland compositors supporting wlr-gamma-control-unstable-v1 & xdg-output-unstable-v1.
+| [bluez](http://www.bluez.org/) | Bluetooth protocol stack for Linux
+| [bluez-utils](http://www.bluez.org/) | Command line utilities to interact with bluetooth devices
+| [blueman](https://github.com/blueman-project/blueman) | Blueman is a GTK+ Bluetooth Manager
+| [network-manager-applet](https://gitlab.gnome.org/GNOME/network-manager-applet) | Tray applet and an advanced network connection editor
+| [gvfs](https://gitlab.gnome.org/GNOME/gvfs/) | Virtual filesystem implementation for GIO - adds missing functionality to thunar such as automount usb drives
+| [thunar-archive-plugin](https://gitlab.xfce.org/thunar-plugins/thunar-archive-plugin) | Adds archive operations to the Thunar file context menus
+| [file-roller](https://gitlab.gnome.org/GNOME/file-roller) | File Roller is an archive manager for the GNOME desktop environment. - Backend set of tools for working with compressed files
+| [btop](https://github.com/aristocratos/btop) | Resource monitor that shows usage and stats for processor, memory, disks, network and processes.
+| [pacman-contrib](https://gitlab.archlinux.org/pacman/pacman-contrib) | Contributed scripts and tools for pacman systems - Required for showing system updates in the waybar
+| [nwg-displays](https://github.com/nwg-piotr/nwg-displays) | Graphical display manager for wayland compositors, works with Sway and Hyprland
+| [wlr-randr](https://sr.ht/~emersion/wlr-randr/) | Utility to manage outputs of a Wayland compositor. - Required by nwg-displays
+
+Theme and visual tools and utilities:
+| Package Name | Description |
+|-|-|
+| [starship](https://github.com/starship/starship) | ☄🌌️ The minimal, blazing-fast, and infinitely customizable prompt for any shell!
+| [ttf-jetbrains-mono-nerd](https://github.com/ryanoasis/nerd-fonts) | Patched font JetBrains Mono from nerd fonts library
+| [noto-fonts-emoji](https://github.com/googlefonts/noto-emoji) | Noto Emoji fonts
+| [nwg-look-bin](https://github.com/nwg-piotr/nwg-look) | GTK3 settings editor adapted to work in the sway / wlroots environment (binary package)
+| [xfce4-settings](https://gitlab.xfce.org/xfce/xfce4-settings) | The xfce4-settings component provides a daemon, manager, and editor to centralize the configuration management of the Xfce system. - Set of tools for xfce, needed to set GTK theme
+| [sddm-git](https://github.com/sddm/sddm) | QML based X11 and Wayland display manager - Required or you will run into shutdown bugs and delays
+| [qt5-graphicaleffects](https://archlinux.org/packages/extra/x86_64/qt5-graphicaleffects/) | Graphical effects for use with Qt Quick 2 - Required for the SDDM theme
+| [qt5-quickcontrols2](https://archlinux.org/packages/extra/x86_64/qt5-quickcontrols2/) | Next generation user interface controls based on Qt Quick - Required for the SDDM theme
+| [qt5-svg](https://archlinux.org/packages/extra/x86_64/qt5-svg/) | Classes for displaying the contents of SVG files - Required for the SDDM theme
+
 ## Author
 
 👤 **I'm Carsen**
