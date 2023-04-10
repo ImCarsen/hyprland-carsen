@@ -2,4 +2,4 @@
 
 #start swww
 swww query || swww init
-swww img ~/.wallpapers/background.jpg
+swww img ~/.config/hypr/wallpaper-dark.jpg
