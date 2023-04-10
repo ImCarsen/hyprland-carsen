@@ -21,8 +21,15 @@
 
 ## Usage
 Made to be run on a fresh install.
+Master branch (updated less frequently, should be somewhat stable)
 ```bash
 git clone https://github.com/ImCarsen/hyprland-carsen.git
+cd hyprland-carsen/
+sh hypr-install.sh
+```
+Dev branch (updated more frequently, possibly broken)
+```bash
+git clone -b Dev https://github.com/ImCarsen/hyprland-carsen.git
 cd hyprland-carsen/
 sh hypr-install.sh
 ```
@@ -100,6 +107,8 @@ Theme and visual tools and utilities:
 | [qt5-graphicaleffects](https://archlinux.org/packages/extra/x86_64/qt5-graphicaleffects/) | Graphical effects for use with Qt Quick 2 - Required for the SDDM theme
 | [qt5-quickcontrols2](https://archlinux.org/packages/extra/x86_64/qt5-quickcontrols2/) | Next generation user interface controls based on Qt Quick - Required for the SDDM theme
 | [qt5-svg](https://archlinux.org/packages/extra/x86_64/qt5-svg/) | Classes for displaying the contents of SVG files - Required for the SDDM theme
+
+If you have suggestions for alternative packages, please start a discussion on the [discussions page](https://github.com/ImCarsen/hyprland-carsen/discussions/categories/suggestions)
 
 ## Author
 
