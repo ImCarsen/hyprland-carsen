@@ -3,7 +3,6 @@
 # The follwoing will attempt to install all needed packages to run Hyprland
 # This is a quick and dirty script there are no error checking
 # This script is meant to run on a clean fresh system
-# Modified https://github.com/ChrisTitusTech/hyprland-titus and https://github.com/soldoestech/hyprland by https://github.com/ImCarsen
 
 # Set some colors
 CNT="[\e[1;36mNOTE\e[0m]"
@@ -65,7 +64,6 @@ if [[ $WIFI == "Y" || $WIFI == "y" ]]; then
 fi
 
 ### Install all packages ####
-#Removed cliphist
 read -n1 -rep $'[\e[1;33mACTION\e[0m] - Would you like to install the packages? (y,n) ' INST
 if [[ $INST == "Y" || $INST == "y" ]]; then
     # update the DB first
